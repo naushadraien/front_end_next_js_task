@@ -5,7 +5,7 @@ import { ProductType } from "@/types";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 export default function Home() {
-  const { isLoading, data } = useQuery({
+  const { isLoading, data } = useQuery<ProductType[]>({
     queryKey: ["products"],
     queryFn: async () => {
       try {
