@@ -14,22 +14,22 @@ interface InfoProps {
 }
 
 const Info: React.FC<InfoProps> = ({ data }) => {
-  //   const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  //   const items = useSelector((state: RootState) => state.cart.items);
+  // const items = useSelector((state: RootState) => state.cart.data);
 
-  //   const filteredItem = items.find((item: Product) => item.id === data.id); //here find method returns the value of the first element in the provided array that satisfies the provided testing function.
+  // const filteredItem = items.find((item: ProductType) => item.id === data.id); //here find method returns the value of the first element in the provided array that satisfies the provided testing function.
   // console.log(filteredItem.quantity);
 
-  //   const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
-  //     event.stopPropagation(); //stops the bubbling of an event to parent elements, preventing any parent event handlers from being executed.
-  //     if (filteredItem && (filteredItem as Product).quantity > 0) {
-  //       toast.error("Item is Already in Cart!");
-  //     } else {
-  //       dispatch(addItem(data));
-  //       toast.success("Item added to cart!");
-  //     }
-  //   };
+  // const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
+  //   event.stopPropagation(); //stops the bubbling of an event to parent elements, preventing any parent event handlers from being executed.
+  //   if (filteredItem && (filteredItem as ProductType).quantity > 0) {
+  //     toast.error("Item is Already in Cart!");
+  //   } else {
+  //     dispatch(addItem(data));
+  //     toast.success("Item added to cart!");
+  //   }
+  // };
   return (
     <div>
       <h1 className="text-lg font-bold text-purple-900">{data.title}</h1>

@@ -6,6 +6,8 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import ReduxProvider from "@/lib/providers/redux-provider";
 import { ModalProvider } from "@/lib/providers/modal-provider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +27,8 @@ export default function RootLayout({
         <QueryProvider>
           <ReduxProvider>
             <Navbar />
-            <ModalProvider/>
+            <ModalProvider />
+            <ToastContainer position="top-right" hideProgressBar />
             {children}
             <Footer />
           </ReduxProvider>

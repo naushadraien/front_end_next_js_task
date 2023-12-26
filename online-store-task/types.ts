@@ -5,7 +5,7 @@ export interface ProductType {
   description: string;
   image: string;
   quantity?: number;
-  totalQuantity?: number;
+  totalPrice?: number;
   category?: string;
   rating: {
     rate: number;

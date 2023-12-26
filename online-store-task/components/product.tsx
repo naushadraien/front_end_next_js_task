@@ -10,6 +10,8 @@ import { Expand, ShoppingCart } from "lucide-react";
 import IconButton from "@/components/ui/icon-button";
 import { MouseEventHandler } from "react";
 import { useRouter } from "next/navigation";
+import { addToCart } from "@/lib/redux/slices/cartSlice";
+import { toast } from "react-toastify";
 
 interface ProductProps {
   data: ProductType;
@@ -27,6 +29,11 @@ function Product({ data }: ProductProps) {
     dispatch(openModal(data));
   };
 
+  const onAddToCart = () => {
+    dispatch(addToCart({ ...data, quantity: 1 }));
+    toast.success("Item Added to Cart!");
+  };
+
   return (
     <div
       className="h-96 flex flex-col p-5 rounded border group hover:scale-105 transition-transform ease-out duration-200"
@@ -41,7 +48,7 @@ function Product({ data }: ProductProps) {
               icon={<Expand size={20} className="text-gray-600" />}
             />
             <IconButton
-              onClick={() => {}}
+              onClick={onAddToCart}
               icon={<ShoppingCart size={20} className="text-gray-600" />}
             />
           </div>

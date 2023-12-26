@@ -1,4 +1,5 @@
 import modalReducer from "@/lib/redux/slices/modalSlice";
+import cartReducer from "@/lib/redux/slices/cartSlice";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import {
   FLUSH,
@@ -17,7 +18,7 @@ const persistConfig = {
   storage,
 };
 const rootReducer = combineReducers({
-//   cart: cartReducer,
+  cart: cartReducer,
   modal: modalReducer,
 });
 

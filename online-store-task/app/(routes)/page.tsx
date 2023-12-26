@@ -19,7 +19,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen max-w-7xl mx-auto px-8 xl:px-0 mt-32">
-      <section className="flex flex-col space-y-12 pb-44">
+      <section className="flex flex-col space-y-12 pb-10">
         <h1 className="text-5xl font-bold text-center text-purple-800 -mt-24">
           Products
         </h1>

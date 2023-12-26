@@ -1,13 +1,15 @@
 "use client";
 import SearchBar from "@/components/searchBar";
+import { RootState } from "@/lib/redux/store/store";
 import Link from "next/link";
 import { useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { useSelector } from "react-redux";
 function Navbar() {
   const [menu, setMenu] = useState(false);
-
+  const cartItems = useSelector((state: RootState) => state.cart.cartItems);
   return (
     <nav className=" sticky top-0 bg-white z-50">
       <div className=" container max-w-full">
@@ -31,7 +33,7 @@ function Navbar() {
               <button className="text-purple-800 text-2xl font-bold hover:text-purple-600 relative mt-1 mx-8">
                 <AiOutlineShoppingCart />
                 <p className="absolute -mt-8 ml-5 text-xs text-slate-200 bg-orange-500 rounded-full px-[5px] py-[1.5px]">
-                  0
+                  {cartItems && cartItems.length}
                 </p>
               </button>
             </Link>
@@ -68,7 +70,7 @@ function Navbar() {
                 <button className="text-purple-800 text-2xl font-bold hover:text-purple-600 relative mt-1 max-lg:mx-3">
                   <AiOutlineShoppingCart />
                   <p className="absolute -mt-8 ml-5 text-xs text-slate-200 bg-orange-500 rounded-full px-[5px] py-[1.5px]">
-                    0
+                    {cartItems && cartItems.length}
                   </p>
                 </button>
               </Link>
