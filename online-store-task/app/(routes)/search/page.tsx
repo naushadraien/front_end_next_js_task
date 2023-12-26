@@ -9,7 +9,7 @@ import { useSearchParams } from "next/navigation";
 const SearchPage = () => {
   const query = useSearchParams().get("q");
 
-  const { isLoading, data } = useQuery<ProductType[]>({
+  const { data } = useQuery<ProductType[]>({
     queryKey: ["products"],
     queryFn: async () => {
       try {
