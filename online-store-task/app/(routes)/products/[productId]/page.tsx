@@ -1,21 +1,26 @@
 "use client";
 
-import Loader from "@/components/Loader";
 import ProductImage from "@/components/product-image";
 import Button from "@/components/ui/button";
+import { addToCart } from "@/lib/redux/slices/cartSlice";
+import { RootState } from "@/lib/redux/store/store";
 import { ProductType } from "@/types";
 import { StarIcon as StarIconOutline } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 interface SingleProductProps {
   params: {
-    productId: string;
+    productId: number;
   };
 }
 
 const SingleProduct: React.FC<SingleProductProps> = ({ params }) => {
+  const items = useSelector((state: RootState) => state.cart.cartItems);
+  const dispatch = useDispatch();
   const { data, isLoading } = useQuery<ProductType>({
     queryKey: ["data"],
     queryFn: async () => {
@@ -30,7 +35,16 @@ const SingleProduct: React.FC<SingleProductProps> = ({ params }) => {
     },
   });
 
-  // console.log(data);
+  const filteredItem = items.find((item: ProductType) => item.id === data?.id);
+
+  const onAddToCart = () => {
+    if (filteredItem?.quantity ?? 0 > 0) {
+      toast.error("Item already in Cart!");
+    } else {
+      dispatch(addToCart(data!));
+      toast.success("Item added to Cart!");
+    }
+  };
 
   return (
     <>
@@ -104,7 +118,7 @@ const SingleProduct: React.FC<SingleProductProps> = ({ params }) => {
                     <div className="text-sm">
                       <Button
                         className="bg-purple-700 hover:bg-purple-800 hover:shadow-lg transition-all duration-300 text-white rounded-md px-2 py-2 mt-4"
-                        onClick={() => {}}
+                        onClick={onAddToCart}
                       >
                         Add to Cart
                       </Button>

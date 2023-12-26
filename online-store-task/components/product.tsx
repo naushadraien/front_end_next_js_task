@@ -1,16 +1,15 @@
 "use client";
-import Link from "next/link";
 import ProductImage from "@/components/product-image";
-import { AiOutlineStar } from "react-icons/ai";
-import { ProductType } from "@/types";
-import { useDispatch, useSelector } from "react-redux";
+import IconButton from "@/components/ui/icon-button";
+import { addToCart } from "@/lib/redux/slices/cartSlice";
 import { openModal } from "@/lib/redux/slices/modalSlice";
 import { RootState } from "@/lib/redux/store/store";
+import { ProductType } from "@/types";
 import { Expand, ShoppingCart } from "lucide-react";
-import IconButton from "@/components/ui/icon-button";
-import { MouseEventHandler } from "react";
 import { useRouter } from "next/navigation";
-import { addToCart } from "@/lib/redux/slices/cartSlice";
+import { MouseEventHandler } from "react";
+import { AiOutlineStar } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 interface ProductProps {
@@ -19,9 +18,10 @@ interface ProductProps {
 function Product({ data }: ProductProps) {
   const router = useRouter();
   const dispatch = useDispatch();
-
+  const items = useSelector((state: RootState) => state.cart.cartItems);
+  const filteredItem = items.find((item: ProductType) => item.id === data.id);
   const handleCLick = () => {
-    router.push(`/product/${data.id}`);
+    router.push(`/products/${data.id}`);
   };
 
   const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
@@ -29,9 +29,14 @@ function Product({ data }: ProductProps) {
     dispatch(openModal(data));
   };
 
-  const onAddToCart = () => {
-    dispatch(addToCart({ ...data, quantity: 1 }));
-    toast.success("Item Added to Cart!");
+  const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
+    event.stopPropagation(); //stops the bubbling of an event to parent elements, preventing any parent event handlers from being executed.
+    if (filteredItem?.quantity ?? 0 > 0) {
+      toast.error("Item already in Cart!");
+    } else {
+      dispatch(addToCart(data));
+      toast.success("Item Added to Cart!");
+    }
   };
 
   return (

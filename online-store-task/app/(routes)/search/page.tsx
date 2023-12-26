@@ -1,5 +1,4 @@
 "use client";
-
 import Product from "@/components/product";
 import { ProductType } from "@/types";
 import { useQuery } from "@tanstack/react-query";
@@ -9,7 +8,7 @@ import { useSearchParams } from "next/navigation";
 const SearchPage = () => {
   const query = useSearchParams().get("q");
 
-  const { data } = useQuery<ProductType[]>({
+  const { data, isLoading } = useQuery<ProductType[]>({
     queryKey: ["products"],
     queryFn: async () => {
       try {
@@ -24,7 +23,6 @@ const SearchPage = () => {
   const filteredProducts = data?.filter((product) =>
     product.title.toLowerCase().includes(query!.toLowerCase())
   );
-  //   console.log(filteredProducts);
 
   return (
     <>
@@ -38,6 +36,12 @@ const SearchPage = () => {
           <p className="my-20 font-bold text-xl text-red-500">
             No Results Found!
           </p>
+        ) : isLoading ? (
+          <div className="flex min-h-full min-w-full items-center justify-center my-10 md:mx-64 p-4">
+            <div className="mx-auto max-w-3xl rounded bg-orange-500 p-10">
+              <div className="h-8 w-8 rounded-full border-4 border-dashed border-white animate-spin" />
+            </div>
+          </div>
         ) : (
           filteredProducts?.map((product) => (
             <div key={product.id} className="flex justify-between mx-5 my-8">

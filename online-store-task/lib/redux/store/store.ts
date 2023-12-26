@@ -1,5 +1,5 @@
-import modalReducer from "@/lib/redux/slices/modalSlice";
 import cartReducer from "@/lib/redux/slices/cartSlice";
+import modalReducer from "@/lib/redux/slices/modalSlice";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import {
   FLUSH,

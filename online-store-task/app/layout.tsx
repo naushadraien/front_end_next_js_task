@@ -1,13 +1,13 @@
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
+import { ModalProvider } from "@/lib/providers/modal-provider";
+import QueryProvider from "@/lib/providers/react-query-provider";
+import ReduxProvider from "@/lib/providers/redux-provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import QueryProvider from "@/lib/providers/react-query-provider";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
-import ReduxProvider from "@/lib/providers/redux-provider";
-import { ModalProvider } from "@/lib/providers/modal-provider";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

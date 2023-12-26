@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
+import Button from "./ui/button";
 
 const SearchBar = () => {
   const router = useRouter();
@@ -38,12 +39,12 @@ const SearchBar = () => {
           onChange={(e) => setSearchData(e.target.value)}
         />
       </form>
-      <button
+      <Button
         className=" text-xl text-purple-700 bg-gray-100 px-1 py-1 rounded-lg cursor-pointer border-purple-700 border hover:border-purple-900"
         onClick={handleSearchButton}
       >
         <IoSearchOutline />
-      </button>
+      </Button>
     </div>
   );
 };

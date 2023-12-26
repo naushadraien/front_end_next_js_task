@@ -1,6 +1,6 @@
 "use client";
 import Button from "@/components/ui/button";
-import { addItem } from "@/lib/redux/slices/cartSlice";
+import { addToCart } from "@/lib/redux/slices/cartSlice";
 import { RootState } from "@/lib/redux/store/store";
 import { ProductType } from "@/types";
 import { StarIcon as StarIconOutline } from "@heroicons/react/24/outline";
@@ -14,22 +14,21 @@ interface InfoProps {
 }
 
 const Info: React.FC<InfoProps> = ({ data }) => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const items = useSelector((state: RootState) => state.cart.data);
+  const items = useSelector((state: RootState) => state.cart.cartItems);
 
-  // const filteredItem = items.find((item: ProductType) => item.id === data.id); //here find method returns the value of the first element in the provided array that satisfies the provided testing function.
-  // console.log(filteredItem.quantity);
+  const filteredItem = items.find((item: ProductType) => item.id === data.id); //here find method returns the value of the first element in the provided array that satisfies the provided testing function.
 
-  // const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
-  //   event.stopPropagation(); //stops the bubbling of an event to parent elements, preventing any parent event handlers from being executed.
-  //   if (filteredItem && (filteredItem as ProductType).quantity > 0) {
-  //     toast.error("Item is Already in Cart!");
-  //   } else {
-  //     dispatch(addItem(data));
-  //     toast.success("Item added to cart!");
-  //   }
-  // };
+  const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
+    event.stopPropagation(); //stops the bubbling of an event to parent elements, preventing any parent event handlers from being executed.
+    if (filteredItem?.quantity ?? 0 > 0) {
+      toast.error("Item is Already in Cart!");
+    } else {
+      dispatch(addToCart(data));
+      toast.success("Item added to cart!");
+    }
+  };
   return (
     <div>
       <h1 className="text-lg font-bold text-purple-900">{data.title}</h1>
@@ -65,16 +64,9 @@ const Info: React.FC<InfoProps> = ({ data }) => {
           <h3 className="font-semibold text-black">Category:</h3>
           <div className="text-purple-900">{data?.category}</div>
         </div>
-        {/* <div className="flex items-center gap-x-4">
-          <h3 className="font-semibold text-black">Color:</h3>
-          <div
-            style={{ backgroundColor: data?.color?.value }}
-            className="h-6 w-6 rounded-full border border-gray-600"
-          />
-        </div> */}
       </div>
       <div className="mt-10 flex items-center gap-x-3">
-        <Button onClick={() => {}} className="flex items-center gap-x-2">
+        <Button onClick={onAddToCart} className="flex items-center gap-x-2">
           Add To Cart
           <ShoppingCart />
         </Button>
