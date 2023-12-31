@@ -12,8 +12,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "OnlineStore",
-  description: "OnlineStore",
+  title: "Explore a Variety of Quality Products at OnlineStore | Best Deals",
+  description:
+    "Discover a diverse range of high-quality products at competitive prices on OnlineStore. Find what you need and enjoy great deals!",
 };
 
 export default function RootLayout({

@@ -12,7 +12,7 @@ function Navbar() {
   const cartItems = useSelector((state: RootState) => state.cart.cartItems);
   return (
     <nav className=" sticky top-0 bg-white z-50">
-      <div className=" container max-w-full">
+      <div className=" contain  er max-w-full">
         <div className="hidden lg:flex items-center px-4 md:px-12 py-6 justify-between shadow w-full">
           <Link href="/">
             <h2 className="font-extrabold text-purple-800 text-xl">

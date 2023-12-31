@@ -9,6 +9,7 @@ import { StarIcon as StarIconOutline } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
@@ -45,6 +46,12 @@ const SingleProduct: React.FC<SingleProductProps> = ({ params }) => {
       toast.success("Item added to Cart!");
     }
   };
+
+  useEffect(() => {
+    if (data?.title) {
+      document.title = `${data.title} - Buy Online at OnlineStore | Best Price & Quality`;
+    }
+  }, [data?.title]);
 
   return (
     <>
