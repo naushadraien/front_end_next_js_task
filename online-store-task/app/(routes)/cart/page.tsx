@@ -110,14 +110,14 @@ const CartItem = () => {
               <p className="text-sm text-gray-700">including VAT</p>
             </div>
           </div>
-          <button
+          <Button
             className="mt-6 w-full bg-purple-700 py-1.5 font-medium text-blue-50 hover:bg-purple-900 duration-100 rounded-md"
             onClick={() =>
               toast.error("Checkout functionality will be added soon!")
             }
           >
             Check out
-          </button>
+          </Button>
         </div>
       </div>
     </div>
