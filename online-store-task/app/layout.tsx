@@ -8,6 +8,7 @@ import { Inter } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Head>
+        <meta
+          name="google-site-verification"
+          content="7p8uHPkApd9L0yIfQKiXv5-GXiGLDiE8Z7fnz8Z08Kc"
+        />
+      </Head>
       <body className={inter.className}>
         <QueryProvider>
           <ReduxProvider>
