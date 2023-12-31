@@ -1,6 +1,5 @@
 "use client";
 import SearchBar from "@/components/searchBar";
-import Button from "@/components/ui/button";
 import { RootState } from "@/lib/redux/store/store";
 import Link from "next/link";
 import { useState } from "react";
@@ -31,12 +30,12 @@ function Navbar() {
             </Link>
 
             <Link href="/cart">
-              <Button className="text-purple-800 text-2xl font-bold hover:text-purple-600 relative mt-1 mx-8">
+              <button className="text-purple-800 text-2xl font-bold hover:text-purple-600 relative mt-1 mx-8">
                 <AiOutlineShoppingCart />
                 <p className="absolute -mt-8 ml-5 text-xs text-slate-200 bg-orange-500 rounded-full px-[5px] py-[1.5px]">
                   {cartItems && cartItems.length}
                 </p>
-              </Button>
+              </button>
             </Link>
           </div>
         </div>
@@ -46,13 +45,13 @@ function Navbar() {
               OnlineStore
             </h2>
           </Link>
-          <Button onClick={() => setMenu(!menu)}>
+          <button onClick={() => setMenu(!menu)}>
             {menu ? (
               <IoMdClose className="text-3xl lg:hidden rotate-90 text-purple-800" />
             ) : (
               <RxHamburgerMenu className="text-3xl lg:hidden text-purple-800" />
             )}
-          </Button>
+          </button>
         </div>
         {menu && (
           <div className="flex flex-col lg:hidden shadow pb-7 space-y-4 justify-center items-center">
@@ -68,12 +67,12 @@ function Navbar() {
               </Link>
 
               <Link href="/cart">
-                <Button className="text-purple-800 text-2xl font-bold hover:text-purple-600 relative mt-1 max-lg:mx-3">
+                <button className="text-purple-800 text-2xl font-bold hover:text-purple-600 relative mt-1 max-lg:mx-3">
                   <AiOutlineShoppingCart />
                   <p className="absolute -mt-8 ml-5 text-xs text-slate-200 bg-orange-500 rounded-full px-[5px] py-[1.5px]">
                     {cartItems && cartItems.length}
                   </p>
-                </Button>
+                </button>
               </Link>
             </div>
           </div>
