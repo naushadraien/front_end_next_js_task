@@ -13,36 +13,18 @@ function ProductImage({ image, title, fill }: ProductImageProps) {
 
   return (
     <>
-      {fill ? (
-        <div
-          style={{
-            position: "relative",
-            width: "100%",
-            height: "0",
-            paddingTop: "100%",
-          }}
-        >
-          <Image
-            src={image}
-            alt={title}
-            layout="fill"
-            objectFit="contain"
-            loading="eager"
-            className={`object-contain duration-700 ease-in-out group-hover:opacity-75 ${
-              loading
-                ? "scale-110 blur-2xl grayscale"
-                : "scale-100 blur-0 grayscale-0"
-            }`}
-            onLoadingComplete={() => setLoading(false)}
-          />
-        </div>
-      ) : (
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          height: fill ? "100%" : "0",
+        }}
+      >
         <Image
           src={image}
           alt={title}
-          width={400}
-          height={1000}
-          layout="responsive"
+          layout={fill ? "fill" : "responsive"}
+          objectFit="contain"
           loading="eager"
           className={`object-contain duration-700 ease-in-out group-hover:opacity-75 ${
             loading
@@ -51,7 +33,7 @@ function ProductImage({ image, title, fill }: ProductImageProps) {
           }`}
           onLoadingComplete={() => setLoading(false)}
         />
-      )}
+      </div>
     </>
   );
 }
