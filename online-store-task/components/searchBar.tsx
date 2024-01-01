@@ -40,6 +40,7 @@ const SearchBar = () => {
         />
       </form>
       <Button
+        aria-label="search-button"
         className=" text-xl text-purple-700 bg-gray-100 px-1 py-1 rounded-lg cursor-pointer border-purple-700 border hover:border-purple-900"
         onClick={handleSearchButton}
       >

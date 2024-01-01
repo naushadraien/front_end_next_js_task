@@ -13,27 +13,32 @@ function ProductImage({ image, title, fill }: ProductImageProps) {
 
   return (
     <>
-      <div
-        style={{
-          position: "relative",
-          width: "100%",
-          height: fill ? "100%" : "0",
-        }}
-      >
+      {fill ? (
         <Image
           src={image}
           alt={title}
-          layout={fill ? "fill" : "responsive"}
-          objectFit="contain"
-          loading="eager"
+          fill
           className={`object-contain duration-700 ease-in-out group-hover:opacity-75 ${
             loading
               ? "scale-110 blur-2xl grayscale"
               : "scale-100 blur-0 grayscale-0"
-          }`}
+          }}`}
           onLoadingComplete={() => setLoading(false)}
         />
-      </div>
+      ) : (
+        <Image
+          src={image}
+          alt={title}
+          width={400}
+          height={1000}
+          className={`object-contain duration-700 ease-in-out group-hover:opacity-75 ${
+            loading
+              ? "scale-110 blur-2xl grayscale"
+              : "scale-100 blur-0 grayscale-0"
+          }}`}
+          onLoadingComplete={() => setLoading(false)}
+        />
+      )}
     </>
   );
 }
