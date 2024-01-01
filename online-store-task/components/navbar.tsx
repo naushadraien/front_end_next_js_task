@@ -30,7 +30,11 @@ function Navbar() {
             </Link>
 
             <Link href="/cart">
-              <button className="text-purple-800 text-2xl font-bold hover:text-purple-600 relative mt-1 mx-8">
+              <button
+                type="button"
+                aria-label="cart-button"
+                className="text-purple-800 text-2xl font-bold hover:text-purple-600 relative mt-1 mx-8"
+              >
                 <AiOutlineShoppingCart />
                 <p className="absolute -mt-8 ml-5 text-xs text-slate-200 bg-orange-500 rounded-full px-[5px] py-[1.5px]">
                   {cartItems && cartItems.length}
@@ -45,7 +49,11 @@ function Navbar() {
               OnlineStore
             </h2>
           </Link>
-          <button onClick={() => setMenu(!menu)}>
+          <button
+            type="button"
+            aria-label="mobile-nav-menu"
+            onClick={() => setMenu(!menu)}
+          >
             {menu ? (
               <IoMdClose className="text-3xl lg:hidden rotate-90 text-purple-800" />
             ) : (
@@ -67,7 +75,11 @@ function Navbar() {
               </Link>
 
               <Link href="/cart">
-                <button className="text-purple-800 text-2xl font-bold hover:text-purple-600 relative mt-1 max-lg:mx-3">
+                <button
+                  type="button"
+                  aria-label="mobile-cart"
+                  className="text-purple-800 text-2xl font-bold hover:text-purple-600 relative mt-1 max-lg:mx-3"
+                >
                   <AiOutlineShoppingCart />
                   <p className="absolute -mt-8 ml-5 text-xs text-slate-200 bg-orange-500 rounded-full px-[5px] py-[1.5px]">
                     {cartItems && cartItems.length}
