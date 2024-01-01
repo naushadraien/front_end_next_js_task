@@ -9,7 +9,7 @@ interface ProductImageProps {
 }
 
 function ProductImage({ image, title, fill }: ProductImageProps) {
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   return (
     <>
@@ -17,9 +17,14 @@ function ProductImage({ image, title, fill }: ProductImageProps) {
         <Image
           src={image}
           alt={title}
+          loading="eager"
           fill
-          className={`object-contain duration-700 ease-in-out group-hover:opacity-75 `}
-          // onLoadingComplete={() => setLoading(false)}
+          className={`object-contain duration-700 ease-in-out group-hover:opacity-75 ${
+            loading
+              ? "scale-110 blur-2xl grayscale"
+              : "scale-100 blur-0 grayscale-0"
+          }}`}
+          onLoadingComplete={() => setLoading(false)}
         />
       ) : (
         <Image
@@ -27,8 +32,13 @@ function ProductImage({ image, title, fill }: ProductImageProps) {
           alt={title}
           width={400}
           height={1000}
-          className={`object-contain duration-700 ease-in-out group-hover:opacity-75`}
-          // onLoadingComplete={() => setLoading(false)}
+          loading="eager"
+          className={`object-contain duration-700 ease-in-out group-hover:opacity-75 ${
+            loading
+              ? "scale-110 blur-2xl grayscale"
+              : "scale-100 blur-0 grayscale-0"
+          }}`}
+          onLoadingComplete={() => setLoading(false)}
         />
       )}
     </>
