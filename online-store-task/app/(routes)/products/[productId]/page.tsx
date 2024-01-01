@@ -67,7 +67,7 @@ const SingleProduct: React.FC<SingleProductProps> = ({ params }) => {
                 </div>
               ) : (
                 <>
-                  <div className="relative w-full h-full">
+                  <div className="relative w-full h-80 md:h-96">
                     <ProductImage image={data.image} title={data.title} fill />
                   </div>
                   <div>
