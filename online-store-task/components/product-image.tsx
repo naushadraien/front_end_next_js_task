@@ -18,7 +18,6 @@ function ProductImage({ image, title, fill }: ProductImageProps) {
           src={image}
           alt={title}
           fill
-          loading="eager"
           className={`object-contain duration-700 ease-in-out group-hover:opacity-75 ${
             loading
               ? "scale-110 blur-2xl grayscale"
@@ -32,7 +31,6 @@ function ProductImage({ image, title, fill }: ProductImageProps) {
           alt={title}
           width={400}
           height={1000}
-          loading="eager"
           className={`object-contain duration-700 ease-in-out group-hover:opacity-75 ${
             loading
               ? "scale-110 blur-2xl grayscale"
