@@ -17,8 +17,8 @@ function ProductImage({ image, title, fill }: ProductImageProps) {
         <Image
           src={image}
           alt={title}
-          loading="eager"
           fill
+          loading="eager"
           className={`object-contain duration-700 ease-in-out group-hover:opacity-75 ${
             loading
               ? "scale-110 blur-2xl grayscale"
