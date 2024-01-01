@@ -72,7 +72,7 @@ function Product({ data }: ProductProps) {
               <AiOutlineStar />
             </span>
           </p>
-          <p className="text-orange-500 font-semibold ml-1">
+          <p className="text-blue-700 font-semibold ml-1">
             ({data.rating.count})
           </p>
         </div>
