@@ -35,6 +35,7 @@ function Navbar() {
                 aria-label="View shopping cart"
                 className="text-purple-800 text-2xl font-bold hover:text-purple-600 relative mt-1 mx-8"
               >
+                <span className="sr-only">View shopping cart</span>
                 <AiOutlineShoppingCart />
                 <p className="absolute -mt-8 ml-5 text-xs text-slate-200 bg-orange-500 rounded-full px-[5px] py-[1.5px]">
                   {cartItems && cartItems.length}
@@ -80,6 +81,7 @@ function Navbar() {
                   aria-label="View shopping cart"
                   className="text-purple-800 text-2xl font-bold hover:text-purple-600 relative mt-1 max-lg:mx-3"
                 >
+                  <span className="sr-only">View shopping cart</span>
                   <AiOutlineShoppingCart />
                   <p className="absolute -mt-8 ml-5 text-xs text-slate-200 bg-orange-500 rounded-full px-[5px] py-[1.5px]">
                     {cartItems && cartItems.length}
