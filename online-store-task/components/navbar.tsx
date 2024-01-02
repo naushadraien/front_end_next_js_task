@@ -32,7 +32,7 @@ function Navbar() {
             <Link href="/cart">
               <button
                 type="button"
-                aria-label="cart-button"
+                aria-label="View shopping cart"
                 className="text-purple-800 text-2xl font-bold hover:text-purple-600 relative mt-1 mx-8"
               >
                 <AiOutlineShoppingCart />
@@ -77,7 +77,7 @@ function Navbar() {
               <Link href="/cart">
                 <button
                   type="button"
-                  aria-label="cart-button"
+                  aria-label="View shopping cart"
                   className="text-purple-800 text-2xl font-bold hover:text-purple-600 relative mt-1 max-lg:mx-3"
                 >
                   <AiOutlineShoppingCart />
