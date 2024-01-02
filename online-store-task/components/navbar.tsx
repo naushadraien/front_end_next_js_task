@@ -33,13 +33,20 @@ function Navbar() {
               <button
                 type="button"
                 aria-label="View shopping cart"
-                className="text-purple-800 text-2xl font-bold hover:text-purple-600 relative mt-1 mx-8"
+                className="relative mt-1 mx-8 p-2 focus:outline-none"
               >
                 <span className="sr-only">View shopping cart</span>
-                <AiOutlineShoppingCart />
-                <p className="absolute -mt-8 ml-5 text-xs text-slate-200 bg-orange-500 rounded-full px-[5px] py-[1.5px]">
-                  {cartItems && cartItems.length}
-                </p>
+                <span
+                  aria-hidden="true"
+                  className="text-purple-800 text-2xl font-bold hover:text-purple-600"
+                >
+                  <AiOutlineShoppingCart />
+                </span>
+                {cartItems && cartItems.length > 0 && (
+                  <span className="absolute -mt-2 ml-3 text-xs text-slate-200 bg-orange-500 rounded-full px-[5px] py-[1.5px]">
+                    {cartItems.length}
+                  </span>
+                )}
               </button>
             </Link>
           </div>
@@ -79,13 +86,20 @@ function Navbar() {
                 <button
                   type="button"
                   aria-label="View shopping cart"
-                  className="text-purple-800 text-2xl font-bold hover:text-purple-600 relative mt-1 max-lg:mx-3"
+                  className="relative mt-1 mx-8 p-2 focus:outline-none"
                 >
                   <span className="sr-only">View shopping cart</span>
-                  <AiOutlineShoppingCart />
-                  <p className="absolute -mt-8 ml-5 text-xs text-slate-200 bg-orange-500 rounded-full px-[5px] py-[1.5px]">
-                    {cartItems && cartItems.length}
-                  </p>
+                  <span
+                    aria-hidden="true"
+                    className="text-purple-800 text-2xl font-bold hover:text-purple-600"
+                  >
+                    <AiOutlineShoppingCart />
+                  </span>
+                  {cartItems && cartItems.length > 0 && (
+                    <span className="absolute -mt-2 ml-3 text-xs text-slate-200 bg-orange-500 rounded-full px-[5px] py-[1.5px]">
+                      {cartItems.length}
+                    </span>
+                  )}
                 </button>
               </Link>
             </div>
