@@ -33,7 +33,7 @@ function Navbar() {
               <button
                 type="button"
                 aria-label="View shopping cart"
-                className="relative mt-1 mx-8 p-2 focus:outline-none"
+                className="relative mt-1 p-2 focus:outline-none"
               >
                 <span className="sr-only">View shopping cart</span>
                 <span
@@ -43,7 +43,7 @@ function Navbar() {
                   <AiOutlineShoppingCart />
                 </span>
                 {cartItems && cartItems.length > 0 && (
-                  <span className="absolute -mt-2 ml-3 text-xs text-slate-200 bg-orange-500 rounded-full px-[5px] py-[1.5px]">
+                  <span className="absolute -mt-8 ml-2 text-xs text-slate-200 bg-orange-500 rounded-full px-[5px] py-[1.5px]">
                     {cartItems.length}
                   </span>
                 )}
@@ -86,7 +86,7 @@ function Navbar() {
                 <button
                   type="button"
                   aria-label="View shopping cart"
-                  className="relative mt-1 mx-8 p-2 focus:outline-none"
+                  className="relative mt-1 p-2 focus:outline-none"
                 >
                   <span className="sr-only">View shopping cart</span>
                   <span
@@ -96,7 +96,7 @@ function Navbar() {
                     <AiOutlineShoppingCart />
                   </span>
                   {cartItems && cartItems.length > 0 && (
-                    <span className="absolute -mt-2 ml-3 text-xs text-slate-200 bg-orange-500 rounded-full px-[5px] py-[1.5px]">
+                    <span className="absolute -mt-8 ml-2 text-xs text-slate-200 bg-orange-500 rounded-full px-[5px] py-[1.5px]">
                       {cartItems.length}
                     </span>
                   )}
