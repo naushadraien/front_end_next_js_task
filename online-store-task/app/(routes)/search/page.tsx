@@ -3,11 +3,11 @@ import Product from "@/components/product";
 import { ProductType } from "@/types";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useSearchParams } from "next/navigation";
+import { redirect, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 const SearchPage = () => {
   const query = useSearchParams().get("q");
-
   const { data, isLoading } = useQuery<ProductType[]>({
     queryKey: ["products"],
     queryFn: async () => {
@@ -20,8 +20,14 @@ const SearchPage = () => {
     },
   });
 
+  useEffect(() => {
+    if (!data) {
+      redirect("/");
+    }
+  }, [data]);
+
   const filteredProducts = data?.filter((product) =>
-    product.title.toLowerCase().includes(query!.toLowerCase())
+    product.title.toLowerCase().includes(query!?.toLowerCase())
   );
 
   return (
